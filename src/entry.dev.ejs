@@ -1,0 +1,33 @@
+<% htmlWebpackPlugin.options.headScripts = htmlWebpackPlugin.options.headScripts || [] %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="lms">
+  <title>牛班音乐学校</title>
+  <link rel="icon" href="http://www.newband.com/images1/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/nprogress.css" />
+  <link rel="stylesheet" href="/css/todo.css" />
+  <!--[if lte IE 10]>
+      <script
+        src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div id="root" style="display: none;"></div>
+  <script type="text/javascript" src="/js/fastclick.js?v=1"></script>
+  <script>
+    FastClick.attach(document.body)
+    setTimeout(() => { document.getElementById('root').removeAttribute("style") }, 500)
+  </script>
+  <% for (item of htmlWebpackPlugin.options.headScripts) { %>
+    <script src="<%= item %>"></script>
+  <% } %>
+</body>
+
+
+</html>

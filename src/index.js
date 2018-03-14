@@ -1,17 +1,36 @@
-import dva from 'dva';
-import './index.css';
+import 'babel-polyfill'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { syncHistoryWithStore } from 'react-router-redux'
+import { applyRouterMiddleware, Router, browserHistory } from 'react-router'
+import { useScroll } from 'react-router-scroll'
+import 'utils/rem'
+import 'utils/moment-locale'
+import './themes/index.less'
 
-// 1. Initialize
-const app = dva();
+import routers from './routes'
+import store from './store'
 
-// 2. Plugins
-// app.use({});
+const history = syncHistoryWithStore(browserHistory, store, {
+  selectLocationState (state) {
+    return state.get('routing').toJS()
+  },
+})
 
-// 3. Model
-// app.model(require('./models/example'));
+const renderUseScroll = useScroll((prevRouterProps, { routes }) => {
+  if (routes.some(route => route.ignoreScrollBehavior)) {
+    return false
+  }
+  if (routes.some(route => route.scrollToTop)) {
+    return [0, 0]
+  }
+  return true
+})
 
-// 4. Router
-app.router(require('./router'));
-
-// 5. Start
-app.start('#root');
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={history} routes={routers} render={applyRouterMiddleware(renderUseScroll)} />
+  </Provider>,
+  document.getElementById('root')
+)

@@ -1,0 +1,51 @@
+@import "./mixin.less";
+@import "./vars.less";
+
+:global {
+  .flex-box {
+    display: flex;
+  }
+
+  .flex-item {
+    flex: 1;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .am-tabs-ink-bar {
+    background-color: @nb-blue !important;
+  }
+
+  .am-tabs-bar .am-tabs-tab-active {
+    color: @nb-blue !important;
+  }
+
+  .content-box {
+    min-height: 100vh;
+    background-color: @nb-bg-fill;
+  }
+
+  .content {
+    padding-top: 88px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ios {
+    .am-navbar-dark {
+      padding-top: 32px;
+    }
+
+    .content {
+      padding-top: 120px;
+    }
+  }
+}
