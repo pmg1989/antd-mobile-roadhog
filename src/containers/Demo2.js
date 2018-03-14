@@ -35,9 +35,9 @@ class Demo2 extends React.Component {
           <form>
             <InputItem label="name" {...fields('name')} />
             <InputItem label="email" {...fields('email', {
-            initialValue: '972401854@qq.com',
-          })}
-          />
+              initialValue: '972401854@qq.com',
+            })}
+            />
             <InputItem label="phone" {...fields('phone')} />
             <Button type="primary" onClick={::this.submit}>submit</Button>
           </form>
