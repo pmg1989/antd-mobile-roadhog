@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
+import { Header } from 'components'
 import { fetchTaskList, taskAdd, taskDone, taskUndone, taskRemove, taskEdit, taskFilter } from 'actions'
 import TaskForm from './Todo/TaskForm'
 import TaskList from './Todo/TaskList'
@@ -50,11 +51,14 @@ class App extends Component {
     }
 
     return (
-      <div id="viewport">
-        <TaskForm onSave={onTaskAdd} />
-        <TaskList {...taskListProps} />
-        <TaskStats {...taskStatsProps} />
-        {children}
+      <div id="viewport" className="content-box">
+        <Header>todo mvc</Header>
+        <div className="content">
+          <TaskForm onSave={onTaskAdd} />
+          <TaskList {...taskListProps} />
+          <TaskStats {...taskStatsProps} />
+          {children}
+        </div>
       </div>
     )
   }

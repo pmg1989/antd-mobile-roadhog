@@ -9,14 +9,13 @@ li {
 }
 
 body {
-  font: 16px/22px 'helvetica-neue', 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
   background: #E9E9E9;
 }
 
 #viewport {
   width: 440px;
   background: #fff;
-  margin: 40px auto;
+  margin: 0 auto;
 }
 
 .component-task-form {}
@@ -27,7 +26,6 @@ body {
   height: 84px;
   width: 400px;
   padding: 0 18px;
-  font-size: 20px;
 }
 
 .component-task-form button {
@@ -41,7 +39,7 @@ body {
 
 .component-todo-item .name {
   float: left;
-  padding: 31px 20px;
+  padding: 26px 20px;
   display: block;
   width: 230px;
 }
@@ -87,6 +85,10 @@ body {
   color: red;
   border:1px solid red;
   border-radius: 3px;
+}
+
+.component-task-stats {
+  font-size: 0.2rem;
 }
 
 .component-task-stats dl {
