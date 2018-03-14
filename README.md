@@ -1,6 +1,4 @@
-## antd-mobile demo with roadhog, dva
-
-> upgrade from antd-mobible@1.x
+## react project starter with antd-mobile@2.x, roadhog, redux, immutable
 
 Include below common usage:
 
@@ -15,5 +13,5 @@ npm install
 npm start
 ```
 
-http://localhost:8000/
+http://localhost:8002/
 
