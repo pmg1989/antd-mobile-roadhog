@@ -1,5 +1,5 @@
 import { createActions } from 'redux-actions'
-import { TASK_ADD, TASK_DONE, TASK_UNDONE, TASK_REMOVE, TASK_EDIT, TASK_FILTER } from '../constants'
+import { TASK_ADD, TASK_DONE, TASK_UNDONE, TASK_REMOVE, TASK_EDIT, TASK_FILTER } from 'constants'
 
 export const {
   taskAdd,

@@ -2,7 +2,7 @@ import _ from 'lodash'
 import { handleActions } from 'redux-actions'
 import Immutable from 'immutable'
 import { combineReducers } from 'redux-immutable'
-import { TASK_ADD, TASK_DONE, TASK_UNDONE, TASK_REMOVE, TASK_EDIT, TASK_FILTER, FILTER_TITLES } from '../constants'
+import { TASK_ADD, TASK_DONE, TASK_UNDONE, TASK_REMOVE, TASK_EDIT, TASK_FILTER, FILTER_TITLES } from 'constants'
 
 const { ALL } = FILTER_TITLES
 

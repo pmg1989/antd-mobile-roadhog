@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
-import TaskForm from '../components/TaskForm'
-import TaskList from '../components/TaskList'
-import TaskStats from '../components/TaskStats'
-import selector from '../selector'
-import { fetchTaskList, taskAdd, taskDone, taskUndone, taskRemove, taskEdit, taskFilter } from '../actions'
+import { fetchTaskList, taskAdd, taskDone, taskUndone, taskRemove, taskEdit, taskFilter } from 'actions'
+import TaskForm from './Todo/TaskForm'
+import TaskList from './Todo/TaskList'
+import TaskStats from './Todo/TaskStats'
+import selector from '../selectors/todo'
 
 class App extends Component {
   static propTypes = {
