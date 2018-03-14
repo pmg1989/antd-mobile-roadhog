@@ -1,34 +1,23 @@
 @import "../../themes/mixin.less";
-
 .fixed-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 998;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
 }
 
 :global {
-
-  .am-navbar-dark {
-    background-color: #34393A;
-  }
-
-  .am-navbar-left {
-    .am-navbar-left-icon {
-      margin-right: 0;
+    .am-navbar {
+        .am-navbar-left,
+        .am-navbar-right {
+            .am-icon {
+                height: 0.44rem;
+                width: 0.44rem;
+            }
+        }
     }
-  }
-
-  .am-navbar-title {
-    flex-basis: 50%;
-  }
-
-  .am-navbar-right {
-    margin-right: 20px;
-  }
-
-  .navbar-right-content {
-    margin-left: 10px;
-  }
+    .am-navbar-title {
+      flex: 0 1 50%;
+    }
 }

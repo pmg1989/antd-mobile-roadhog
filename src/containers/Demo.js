@@ -6,11 +6,12 @@ import styles from './Demo.less'
 const Demo = () => {
   return (
     <div className="content-box">
-      <Header>todo mvc</Header>
+      <Header>todo mvc hahahahaha</Header>
       <div className="content">
         <WingBlank>
           <div className={styles.box}>
             <span className={styles.title}>
+              <Icon type="check-circle-o" />
               i am demo title
             </span>
           </div>
@@ -25,6 +26,7 @@ const Demo = () => {
           <Button type="warning">warning</Button><WhiteSpace />
           <Button loading>loading button</Button><WhiteSpace />
           <Button icon="check-circle-o">with icon</Button><WhiteSpace />
+          <Button icon={<Icon type={require('svg/loading.svg')} />}>with svg icon</Button><WhiteSpace />
           <Button icon={<img src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg" alt="" />}>with custom icon</Button><WhiteSpace />
         </WingBlank>
       </div>

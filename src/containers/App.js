@@ -35,6 +35,12 @@ class App extends Component {
             onTaskAdd, onTaskDone, onTaskUndone, onTaskRemove, onTaskEdit, onTaskFilter,
           } = this.props
 
+    const headerProps = {
+      leftContent: '',
+      icon: null,
+      onLeftClick () { },
+    }
+
     const taskListProps = {
       tasks,
       onTaskEdit,
@@ -52,7 +58,7 @@ class App extends Component {
 
     return (
       <div id="viewport" className="content-box">
-        <Header>todo mvc</Header>
+        <Header {...headerProps}>todo mvc</Header>
         <div className="content">
           <TaskForm onSave={onTaskAdd} />
           <TaskList {...taskListProps} />

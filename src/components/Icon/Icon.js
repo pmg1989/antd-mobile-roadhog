@@ -1,15 +1,21 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { Icon } from 'antd-mobile'
 
-const Icon = ({ type, className = '', size = 'md', ...props }) => {
+const MyIcon = ({ type, className = '', size = 'md', ...props }) => {
+  if (type.default) {
+    return (
+      <svg className={`am-icon am-icon-${type.default.id} am-icon-${size} ${className}`} {...props}>
+        <use xlinkHref={`#${type.default.id}`} />
+      </svg>
+    )
+  }
   return (
-    <svg className={`am-icon am-icon-${type.default ? type.default.id : type} am-icon-${size} ${className}`} {...props}>
-      <use xlinkHref={`#${type.default ? type.default.id : type}`} />
-    </svg>
+    <Icon type={type} size={size} {...props} />
   )
 }
 
-Icon.propTypes = {
+MyIcon.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOfType([
     PropTypes.string,
@@ -18,4 +24,4 @@ Icon.propTypes = {
   size: PropTypes.object,
 }
 
-export default Icon
+export default MyIcon

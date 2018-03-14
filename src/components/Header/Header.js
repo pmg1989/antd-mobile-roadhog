@@ -5,6 +5,7 @@ import { goBack } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { NavBar } from 'antd-mobile'
 import { Helmet } from 'react-helmet'
+import { Icon } from 'components'
 import styles from './Header.less'
 
 const Header = ({ dispatch, children, ...headerProps }) => {
@@ -15,7 +16,7 @@ const Header = ({ dispatch, children, ...headerProps }) => {
 
   const navBarProps = {
     leftContent: '',
-    iconName: `#${require('../../svg/back.svg').default.id}`,
+    icon: < Icon type={require('svg/back.svg')} />,
     mode: 'dark',
     onLeftClick: handleBack,
     ...headerProps,
