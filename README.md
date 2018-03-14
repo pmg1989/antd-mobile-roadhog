@@ -1,4 +1,4 @@
-## react project starter with antd-mobile@2.x, roadhog, redux, immutable
+## react project starter with antd-mobile 2.x, roadhog, redux, immutable
 
 Include below common usage:
 
