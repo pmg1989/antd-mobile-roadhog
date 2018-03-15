@@ -4,12 +4,11 @@
   "version": "1.0.0",
   "theme": "./theme.config.js",
   "scripts": {
-    "build:dll": "roadhog buildDll",
-    "dev": "cross-env BROWSER=none HOST=edu.newband.cn PORT=8001 roadhog server",
-    "start": "cross-env PROXY_HOST=https://lmsapi.newband.com PROXY_SHARE_HOST=https://galaxyapi.newband.com zhugeAppKey=b84e41752a9447c38dc3fd4443d40cfe BROWSER=none HOST=edu.newband.cn PORT=8001 roadhog server",
+    "dev": "cross-env BROWSER=none HOST=dev.newband.com PORT=8001 roadhog server",
+    "start": "cross-env PROXY_HOST=https://lmsapi.newband.com BROWSER=none HOST=pro.newband.com PORT=8001 roadhog server",
     "build-staging": "cross-env rimraf dist && roadhog build && node deploy",
-    "build-release": "cross-env rimraf dist && zhugeAppKey=b84e41752a9447c38dc3fd4443d40cfe roadhog build && node deploy",
-    "build-release-new": "cross-env node version && zhugeAppKey=b84e41752a9447c38dc3fd4443d40cfe roadhog build",
+    "build-release": "cross-env rimraf dist && roadhog build && node deploy",
+    "build-release-new": "cross-env node version && roadhog build",
     "build:analyze": "cross-env rimraf dist && roadhog build && node deploy --analyze",
     "lint": "eslint --fix --ext .js src",
     "precommit": "npm run lint"
