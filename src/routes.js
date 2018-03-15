@@ -23,15 +23,15 @@ const Routes = [
       }, 'demo2')
     },
   },
-  // {
-  //   path: '*',
-  //   name: 'error',
-  //   getComponent (nextState, cb) {
-  //     require.ensure([], (require) => {
-  //       cb(null, require('./containers/Error'))
-  //     }, 'error')
-  //   },
-  // },
+  {
+    path: '*',
+    name: 'error',
+    getComponent (nextState, cb) {
+      require.ensure([], (require) => {
+        cb(null, require('./containers/Error'))
+      }, 'error')
+    },
+  },
 ]
 
 export default Routes
