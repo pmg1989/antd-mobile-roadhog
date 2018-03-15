@@ -24,6 +24,14 @@ const Routes = [
     },
   },
   {
+    path: 'demo3',
+    getComponent (location, cb) {
+      require.ensure([], (require) => {
+        cb(null, require('./containers/Demo3'))
+      }, 'demo3')
+    },
+  },
+  {
     path: '*',
     name: 'error',
     getComponent (nextState, cb) {
