@@ -1,3 +1,4 @@
+export connect from './connect'
 export Header from './Header'
 export Icon from './Icon'
 export Empty from './Empty'

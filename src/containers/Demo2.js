@@ -1,10 +1,8 @@
 import React from 'react'
 import { compose } from 'redux'
-// import { connect } from 'react-redux'
-import { hot } from 'react-hot-loader'
 import { Button } from 'antd-mobile'
 import PropTypes from 'prop-types'
-import { Header } from 'components'
+import { connect, Header } from 'components'
 import { hocForm, InputItem, hocDebug, stringify } from 'components/Hoc-form'
 
 
@@ -50,8 +48,7 @@ class Demo2 extends React.Component {
 
 export default compose(
   // 单参数的高阶组件
-  // connect(),
+  connect()(module),
   hocDebug,
   hocForm,
-  hot(module),
 )(Demo2)
