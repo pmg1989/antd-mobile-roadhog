@@ -10,7 +10,9 @@ import 'utils/moment-locale'
 import './themes/index.less'
 
 import routers from './routes'
-import store from './store'
+import configureStore from './store'
+
+const store = configureStore()
 
 const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState (state) {
@@ -27,13 +29,6 @@ const renderUseScroll = useScroll((prevRouterProps, { routes }) => {
   }
   return true
 })
-
-if (module.hot) {
-  module.hot.accept('./reducers', () => {
-    const nextRootReducer = require('./reducers')
-    store.replaceReducer(nextRootReducer)
-  })
-}
 
 ReactDOM.render(
   <Provider store={store}>
