@@ -17,10 +17,10 @@ export default {
   // outputPath : `./dist/${version}`,
   outputPath: `./dist/deploy`,
   proxy: {
-    "/api/moodle": {
+    "/api": {
       "target": PROXY_HOST,
       "changeOrigin": true,
-      "pathRewrite": { "^/api": "/" }
+      "pathRewrite": { "^/api": "" }
     },
   },
   autoprefixer: {
