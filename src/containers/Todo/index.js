@@ -10,7 +10,6 @@ import selector from '../../selectors/todo'
 
 class Todo extends Component {
   static propTypes = {
-    children: PropTypes.node,
     tasks: PropTypes.object.isRequired,
     taskCount: PropTypes.number.isRequired,
     doneTaskCount: PropTypes.number.isRequired,
@@ -30,7 +29,7 @@ class Todo extends Component {
   }
 
   render () {
-    const { children, tasks, taskCount, doneTaskCount, filters,
+    const { tasks, taskCount, doneTaskCount, filters,
             onTaskAdd, onTaskDone, onTaskUndone, onTaskRemove, onTaskEdit, onTaskFilter,
           } = this.props
 
@@ -62,7 +61,6 @@ class Todo extends Component {
           <TaskForm onSave={onTaskAdd} />
           <TaskList {...taskListProps} />
           <TaskStats {...taskStatsProps} />
-          {children}
         </div>
       </div>
     )
