@@ -39,45 +39,28 @@ export default {
       propWhiteList: [],
     }),
   ],
+  extraBabelPlugins: [
+    'transform-runtime',
+    ['import', { 'libraryName': 'antd-mobile', 'libraryDirectory': 'lib', 'style': true }],
+    ["module-resolver", {
+      root: ["./src"],
+      alias: {
+        components: `${__dirname}/src/components`,
+        utils: `${__dirname}/src/utils`,
+        config: `${__dirname}/src/utils/config`,
+        services: `${__dirname}/src/services`,
+        constants: `${__dirname}/src/constants`,
+        actions: `${__dirname}/src/actions`,
+        svg: `${__dirname}/src/svg`,
+        images: `${__dirname}/src/public/images`,
+        themes: `${__dirname}/src/themes`,
+      }
+    }]
+  ],
   env: {
     development: {
-      extraBabelPlugins: [
-        'transform-runtime',
-        ['import', { 'libraryName': 'antd-mobile', 'libraryDirectory': 'lib', 'style': true }],
-        ["module-resolver", {
-          root: ["./src"],
-          alias: {
-            components: `${__dirname}/src/components`,
-            utils: `${__dirname}/src/utils`,
-            config: `${__dirname}/src/utils/config`,
-            services: `${__dirname}/src/services`,
-            constants: `${__dirname}/src/constants`,
-            actions: `${__dirname}/src/actions`,
-            svg: `${__dirname}/src/svg`,
-            images: `${__dirname}/src/public/images`,
-            themes: `${__dirname}/src/themes`,
-          }
-        }]
-      ],
     },
     production: {
-      extraBabelPlugins: [
-        'transform-runtime',
-        ['import', { 'libraryName': 'antd-mobile', 'libraryDirectory': 'lib', 'style': true }],
-        ["module-resolver", {
-          root: ["./src"],
-          alias: {
-            components: `${__dirname}/src/components`,
-            utils: `${__dirname}/src/utils`,
-            config: `${__dirname}/src/utils/config`,
-            services: `${__dirname}/src/services`,
-            constants: `${__dirname}/src/constants`,
-            actions: `${__dirname}/src/actions`,
-            svg: `${__dirname}/src/svg`,
-            themes: `${__dirname}/src/themes`,
-          }
-        }]
-      ],
     }
   }
 }
