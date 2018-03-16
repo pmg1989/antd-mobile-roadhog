@@ -1,5 +1,13 @@
-export connect from './connect'
-export Header from './Header'
-export Icon from './Icon'
-export Empty from './Empty'
-export Link from './Link'
+import connect from './connect'
+import Header from './Header'
+import Icon from './Icon'
+import Empty from './Empty'
+import Link from './Link'
+
+export {
+  connect,
+  Header,
+  Icon,
+  Empty,
+  Link,
+}

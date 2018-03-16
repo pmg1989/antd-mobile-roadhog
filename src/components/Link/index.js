@@ -1,1 +1,4 @@
-export default from './LinkToken'
+import LinkToken from './LinkToken'
+
+export default LinkToken
+
