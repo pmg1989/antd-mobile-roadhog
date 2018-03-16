@@ -27,31 +27,3 @@ export function parseTime (time) {
   return `${min}:${sec}`
   // return `${min.padStart(2, '0')}:${sec.padStart(2, '0')}`
 }
-
-export function renderTypeName (enName = '') {
-  return {
-    PROFESSION: '专业课',
-    HD: '互动课',
-    JL: '交流课',
-  }[enName.toUpperCase()] || '未知'
-}
-
-export function getTypeNameFromId (categoryId) {
-  if (categoryId.startsWith('hd-')) {
-    return '互动'
-  } else if (categoryId.startsWith('jl-')) {
-    return '交流'
-  }
-  return '专业'
-}
-
-export function getTypeName (type) {
-  return {
-    vocal: '声乐',
-    theory: '乐理',
-    piano: '键盘',
-    guitar: '吉他',
-    eguitar: '电吉他',
-    composition: '作曲',
-  }[type] || '未知'
-}

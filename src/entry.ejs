@@ -22,6 +22,7 @@
   <script type="text/javascript" src="/js/fastclick.js?v=1"></script>
   <script>
     FastClick.attach(document.body)
+    var zhugeKey = '<%= process.env.zhugeAppKey %>'
   </script>
   <% for (item of htmlWebpackPlugin.options.headScripts) { %>
     <script src="<%= item %>"></script>

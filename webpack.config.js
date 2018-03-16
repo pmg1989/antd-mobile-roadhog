@@ -2,8 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 
-module.exports = (webpackConfig, env) => {
-  const production = env === 'production'
+module.exports = (webpackConfig) => {
+  const production = process.env.CLIENT_ENV === 'production'
 
   if (production) {
     webpackConfig.plugins.push(
@@ -28,8 +28,6 @@ module.exports = (webpackConfig, env) => {
         collapseWhitespace: true,
       } : null,
       hash: true,
-      // headScripts: production ? null : ['/roadhog.dll.js'],
-      zhugeAppKey: process.env.zhugeAppKey || 'd3e2521de2b6411291c55b9f861f32fa',
     }),
   ])
 

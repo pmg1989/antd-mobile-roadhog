@@ -1,6 +1,7 @@
 const path = require('path')
 const pxtorem = require('postcss-pxtorem')
 const { version } = require('./package.json')
+const { PROXY_HOST } = require('./src/utils/config')
 
 const svgSpriteDirs = [
   require.resolve('antd-mobile').replace(/warn\.js$/, ''), // antd-mobile 内置svg
@@ -17,14 +18,9 @@ export default {
   outputPath: `./dist/deploy`,
   proxy: {
     "/api/moodle": {
-      "target": process.env.PROXY_HOST || 'http://school.newband.com:8086',
+      "target": PROXY_HOST,
       "changeOrigin": true,
       "pathRewrite": { "^/api": "/" }
-    },
-    "/share/api": {
-      "target": process.env.PROXY_SHARE_HOST || 'http://staging.web.newband.com:5000',
-      "changeOrigin": true,
-      "pathRewrite": { "^/share/api": "/api" }
     },
   },
   autoprefixer: {
@@ -57,15 +53,24 @@ export default {
       }
     }]
   ],
+  define: {
+    'process.env.NODE_ENV': process.env.NODE_ENV,
+    'process.env.CLIENT_ENV': process.env.CLIENT_ENV,
+  },
   env: {
-    development: {
+    dev: {
       define: {
-        "process.env.TEST": 1,
+        "process.env.zhugeAppKey": 123,
       }
     },
-    production: {
+    beta: {
       define: {
-        "process.env.TEST": 2,
+        "process.env.zhugeAppKey": 456,
+      }
+    },
+    release: {
+      define: {
+        "process.env.zhugeAppKey": 789,
       }
     }
   }

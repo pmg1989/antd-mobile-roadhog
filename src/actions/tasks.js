@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import Immutable from 'immutable'
 import { TASK_ADD, TASK_DONE, TASK_UNDONE, TASK_REMOVE, TASK_EDIT, TASK_FILTER, FETCH_TASK_LIST } from 'constants'
+import { APIHOST } from 'utils/config'
 
 export const taskAdd = name => ({ name, type: TASK_ADD })
 
@@ -21,7 +22,7 @@ const receiveTaskList = list => ({
 
 export const fetchTaskList = () => (
     dispatch => (
-      fetch('https://api.myjson.com/bins/aapid')
+      fetch(`${APIHOST}/aapid`)
       .then(res => res.json())
       .then(list => dispatch(receiveTaskList(list)))
     )
