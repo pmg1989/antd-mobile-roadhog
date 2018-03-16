@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { hot } from 'react-hot-loader'
 
 const App = ({ children }) => {
   return (
@@ -13,4 +14,4 @@ App.propTypes = {
   children: PropTypes.node,
 }
 
-export default App
+export default hot(module)(App)

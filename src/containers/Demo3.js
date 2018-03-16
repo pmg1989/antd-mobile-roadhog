@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader'
 import { Header } from 'components'
 
 const Demo = () => {
@@ -12,4 +13,4 @@ const Demo = () => {
   )
 }
 
-export default Demo
+export default hot(module)(Demo)

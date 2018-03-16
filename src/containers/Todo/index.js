@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { hot } from 'react-hot-loader'
+import { compose, bindActionCreators } from 'redux'
 import { Header } from 'components'
 import { fetchTaskList, taskAdd, taskDone, taskUndone, taskRemove, taskEdit, taskFilter } from 'actions'
 import TaskForm from './TaskForm'
@@ -80,4 +81,4 @@ const mapDispatchToProps = dispatch => ({
   onTaskFilter: bindActionCreators(taskFilter, dispatch),
 })
 
-export default connect(selector, mapDispatchToProps)(Todo)
+export default compose(connect(selector, mapDispatchToProps), hot(module))(Todo)

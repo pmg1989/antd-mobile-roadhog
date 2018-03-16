@@ -1,4 +1,8 @@
 import React from 'react'
+// import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { hot } from 'react-hot-loader'
+import { compose } from 'redux'
 import { Header, Icon } from 'components'
 import { Button, WhiteSpace, WingBlank } from 'antd-mobile'
 import styles from './Demo.less'
@@ -34,4 +38,4 @@ const Demo = () => {
   )
 }
 
-export default Demo
+export default compose(connect(), hot(module))(Demo)

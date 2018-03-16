@@ -1,6 +1,7 @@
 import React from 'react'
 import { compose } from 'redux'
 // import { connect } from 'react-redux'
+import { hot } from 'react-hot-loader'
 import { Button } from 'antd-mobile'
 import PropTypes from 'prop-types'
 import { Header } from 'components'
@@ -52,4 +53,5 @@ export default compose(
   // connect(),
   hocDebug,
   hocForm,
+  hot(module),
 )(Demo2)
