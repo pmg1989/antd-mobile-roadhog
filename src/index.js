@@ -28,6 +28,13 @@ const renderUseScroll = useScroll((prevRouterProps, { routes }) => {
   return true
 })
 
+if (module.hot) {
+  module.hot.accept('./reducers', () => {
+    const nextRootReducer = require('./reducers')
+    store.replaceReducer(nextRootReducer)
+  })
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history} routes={routers} render={applyRouterMiddleware(renderUseScroll)} />
