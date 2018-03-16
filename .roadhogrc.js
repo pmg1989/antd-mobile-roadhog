@@ -59,8 +59,14 @@ export default {
   ],
   env: {
     development: {
+      define: {
+        "process.env.TEST": 1,
+      }
     },
     production: {
+      define: {
+        "process.env.TEST": 2,
+      }
     }
   }
 }
