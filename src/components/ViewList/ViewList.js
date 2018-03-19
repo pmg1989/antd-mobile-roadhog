@@ -1,5 +1,7 @@
-import React, { Component, PropTypes } from 'react'
-import { ListView, Icon } from 'antd-mobile'
+import React, { Component } from 'react'
+import { PropTypes } from 'prop-types'
+import { ListView } from 'antd-mobile'
+import { Icon } from 'components'
 
 class ViewList extends Component {
 
