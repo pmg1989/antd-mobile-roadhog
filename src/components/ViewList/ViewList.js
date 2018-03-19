@@ -12,7 +12,7 @@ class ViewList extends Component {
     className: PropTypes.string.isRequired,
     Header: PropTypes.func,
     Row: PropTypes.func.isRequired,
-    footerMsg: PropTypes.string.isRequired,
+    footerMsg: PropTypes.object.isRequired,
   }
 
   constructor (props) {
