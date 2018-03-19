@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "antd-mobile": "^2.1.6",
+    "antd-mobile-demo-data": "^0.2.0",
+    "array-tree-filter": "^2.1.0",
     "axios": "^0.17.0",
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",

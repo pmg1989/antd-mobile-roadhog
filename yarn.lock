@@ -155,6 +155,10 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+antd-mobile-demo-data@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/antd-mobile-demo-data/-/antd-mobile-demo-data-0.2.0.tgz#049731dc3c48c42603185e4338724879224c8442"
+
 antd-mobile@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/antd-mobile/-/antd-mobile-2.1.6.tgz#dec30762d9c53c054aa6a0e32ec0ebf1c9081673"
@@ -271,6 +275,10 @@ array-reduce@~0.0.0:
 array-tree-filter@1.0.x:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/array-tree-filter/-/array-tree-filter-1.0.1.tgz#0a8ad1eefd38ce88858632f9cc0423d7634e4d5d"
+
+array-tree-filter@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/array-tree-filter/-/array-tree-filter-2.1.0.tgz#873ac00fec83749f255ac8dd083814b4f6329190"
 
 array-tree-filter@~2.0.0:
   version "2.0.0"
