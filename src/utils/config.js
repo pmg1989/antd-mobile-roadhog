@@ -1,12 +1,15 @@
-const NODE_ENV = process.env.NODE_ENV
-const CLIENT_ENV = process.env.CLIENT_ENV
+const API_ENV = process.env.API_ENV
 
 export default {
-  NODE_ENV,
-  CLIENT_ENV,
+  API_ENV,
   PROXY_HOST: {
-    dev: 'https://api.myjson.com/bins',
-    beta: 'https://beta.api.com',
-    release: 'https://release.api.com',
-  }[NODE_ENV],
+    development: 'https://api.myjson.com/bins',
+    staging: 'https://staging.api.com',
+    production: 'https://production.api.com',
+  }[API_ENV],
+  zhugeAppKey: {
+    development: '123',
+    staging: '456',
+    production: '789',
+  }[API_ENV],
 }

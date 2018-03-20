@@ -54,24 +54,14 @@ export default {
     }]
   ],
   define: {
+    'process.env': {},
     'process.env.NODE_ENV': process.env.NODE_ENV,
-    'process.env.CLIENT_ENV': process.env.CLIENT_ENV,
+    'process.env.API_ENV': process.env.API_ENV,
   },
   env: {
-    dev: {
-      define: {
-        "process.env.zhugeAppKey": 123,
-      }
+    development: {
     },
-    beta: {
-      define: {
-        "process.env.zhugeAppKey": 456,
-      }
-    },
-    release: {
-      define: {
-        "process.env.zhugeAppKey": 789,
-      }
+    production: {
     }
   }
 }

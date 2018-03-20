@@ -1,9 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
+const { zhugeAppKey } = require('./src/utils/config')
 
-module.exports = (webpackConfig) => {
-  const production = process.env.CLIENT_ENV === 'production'
+module.exports = (webpackConfig, env) => {
+  const production = env === 'production'
 
   if (production) {
     webpackConfig.plugins.push(
@@ -28,6 +29,7 @@ module.exports = (webpackConfig) => {
         collapseWhitespace: true,
       } : null,
       hash: true,
+      zhugeAppKey,
     }),
   ])
 
