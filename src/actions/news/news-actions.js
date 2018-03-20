@@ -7,10 +7,10 @@ const receiveNewsList = list => ({
   type: newsConstants.FETCH_NEWS_LIST,
 })
 
-export const fetchNewsList = () => (
+export const fetchNewsList = (params = { current: 1, pageSize: 5 }) => (
     dispatch => (
-        fetch('/myapi/getList')
+      fetch(`/myapi/getList?current=${params.current}&pageSize=${params.pageSize}`)
       .then(res => res.json())
-      .then(({ list }) => dispatch(receiveNewsList(list)))
+      .then(({ data }) => dispatch(receiveNewsList(data)))
     )
 )

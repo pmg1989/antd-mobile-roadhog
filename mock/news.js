@@ -1,6 +1,7 @@
+const qs = require('qs')
 const Mock = require('mockjs')
 
-let listData = Mock.mock({
+let newsListData = Mock.mock({
   'data|30': [
     {
       'id|+1': 1,
@@ -12,11 +13,22 @@ let listData = Mock.mock({
       },
     },
   ],
+  page: {
+    total: 30,
+    current: 1,
+  },
 })
 
 module.exports = {
 
   'GET /myapi/getList': function (req, res) {
-    res.json({ success: true, list: listData.data })
+    const page = qs.parse(req.query) || {}
+    const pageSize = page.pageSize || 10
+    const currentPage = page.current || 1
+
+    const data = newsListData.data.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    newsListData.page.current = currentPage * 1
+    const newPage = newsListData.page
+    res.json({ success: true, data, page: { ...newPage, pageSize: Number(pageSize) } })
   },
 }
