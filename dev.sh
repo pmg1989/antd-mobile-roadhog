@@ -1,1 +1,1 @@
-docker run -d -p 8002:8001 -v /Users/newband/Documents/github/antd-mobile-roadhog:/app deploy:6.0 yarn run dev
+docker run -d -p 8001:8001 -v /Users/newband/Documents/github/antd-mobile-roadhog:/app deploy:6.0 yarn run dev
