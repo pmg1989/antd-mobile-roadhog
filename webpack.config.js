@@ -35,9 +35,18 @@ module.exports = (webpackConfig, env) => {
       serviceWorker: production ? `/${version}/service-worker.js` : '/service-worker.js',
     }),
     new SWPrecacheWebpackPlugin({
-      // minify: true,
+      minify: true,
       cacheId: 'antd-mobile-roadhog',
       filename: 'service-worker.js',
+      stripPrefix: 'dist/',
+      replacePrefix: '/',
+      navigateFallback: 'index.html',
+      staticFileGlobs: [
+        `dist/${version}/**.js`,
+        'dist/index.html',
+        'dist/css/**.css',
+        'dist/js/**.js',
+      ],
     }),
   ])
 
