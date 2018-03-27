@@ -30,7 +30,7 @@ module.exports = (webpackConfig, env) => {
       minify: production ? {
         collapseWhitespace: true,
       } : null,
-      hash: true,
+      // hash: true,
       zhugeAppKey,
       serviceWorker: production ? `/${version}/service-worker.js` : '/service-worker.js',
     }),
@@ -42,10 +42,11 @@ module.exports = (webpackConfig, env) => {
       replacePrefix: '/',
       navigateFallback: 'index.html',
       staticFileGlobs: [
-        `dist/${version}/**.js`,
         'dist/index.html',
         'dist/css/**.css',
         'dist/js/**.js',
+        `dist/${version}/**.js`,
+        `dist/${version}/**.css`,
       ],
     }),
   ])
