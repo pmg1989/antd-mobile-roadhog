@@ -21,7 +21,7 @@ const receiveTaskList = list => ({
 
 export const fetchTaskList = () => (
     dispatch => (
-      fetch('api/aapid')
+      fetch('https://api.myjson.com/bins/aapid')
       .then(res => res.json())
       .then(list => dispatch(receiveTaskList(list)))
     )
