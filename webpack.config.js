@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const { zhugeAppKey } = require('./src/utils/config')
+const { version } = require('./package.json')
 
 module.exports = (webpackConfig, env) => {
   const production = env === 'production'
@@ -31,6 +32,7 @@ module.exports = (webpackConfig, env) => {
       } : null,
       hash: true,
       zhugeAppKey,
+      serviceWorker: production ? `/${version}/service-worker.js` : '/service-worker.js',
     }),
     new SWPrecacheWebpackPlugin({
       // minify: true,
