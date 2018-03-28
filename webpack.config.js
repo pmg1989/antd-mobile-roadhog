@@ -8,30 +8,27 @@ const { version } = require('./package.json')
 module.exports = (webpackConfig, env) => {
   const production = env === 'production'
 
-  webpackConfig.plugins = webpackConfig.plugins.concat([
-    new CopyWebpackPlugin([
-      {
-        from: 'src/public',
-        to: production ? '../' : webpackConfig.output.outputPath,
-      },
-    ]),
-    new HtmlWebpackPlugin({
-      template: production ? `${__dirname}/src/entry.ejs` : `${__dirname}/src/entry.dev.ejs`,
-      filename: production ? '../index.html' : 'index.html',
-      minify: production ? {
-        collapseWhitespace: true,
-      } : null,
-      // hash: true,
-      zhugeAppKey,
-      serviceWorker: '/service-worker.js',
-    }),
-  ])
-
   if (production) {
     webpackConfig.plugins = webpackConfig.plugins.concat([
       new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false,
+      }),
+      new CopyWebpackPlugin([
+        {
+          from: 'src/public',
+          to: '../',
+        },
+      ]),
+      new HtmlWebpackPlugin({
+        template: `${__dirname}/src/entry.ejs`,
+        filename: '../index.html',
+        minify: {
+          collapseWhitespace: true,
+        },
+        // hash: true,
+        zhugeAppKey,
+        serviceWorker: '/service-worker.js',
       }),
       new SWPrecacheWebpackPlugin({
         minify: true,
@@ -50,6 +47,23 @@ module.exports = (webpackConfig, env) => {
           `dist/${version}/**.css`,
           `dist/${version}/**.js`,
         ],
+      }),
+    ])
+  } else {
+    webpackConfig.plugins = webpackConfig.plugins.concat([
+      new CopyWebpackPlugin([
+        {
+          from: 'src/public',
+          to: webpackConfig.output.outputPath,
+        },
+      ]),
+      new HtmlWebpackPlugin({
+        template: `${__dirname}/src/entry.dev.ejs`,
+        filename: 'index.html',
+        minify: false,
+        // hash: true,
+        zhugeAppKey,
+        serviceWorker: '/service-worker.js',
       }),
     ])
   }
