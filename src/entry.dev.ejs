@@ -20,21 +20,6 @@
   <div id="root" style="display: none;"></div>
   <script type="text/javascript" src="/js/fastclick.js"></script>
   <script>
-    // Register Service worker
-    (function (serviceWorkerFilename) {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register(serviceWorkerFilename)
-          .then(function () {
-            console.log('Service worker registered!')
-          })
-          .catch(function (error) {
-            console.log('Error registering service worker: ', error)
-          });
-      } else {
-        console.log('Not supported by browser')
-      }
-    })('<%= htmlWebpackPlugin.options.serviceWorker %>');
     FastClick.attach(document.body)
     var zhugeKey = '<%= htmlWebpackPlugin.options.zhugeAppKey %>'
     setTimeout(() => { document.getElementById('root').removeAttribute("style") }, 700)

@@ -8,15 +8,6 @@ const { version } = require('./package.json')
 module.exports = (webpackConfig, env) => {
   const production = env === 'production'
 
-  if (production) {
-    webpackConfig.plugins.push(
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false,
-      })
-    )
-  }
-
   webpackConfig.plugins = webpackConfig.plugins.concat([
     new CopyWebpackPlugin([
       {
@@ -35,25 +26,34 @@ module.exports = (webpackConfig, env) => {
       // serviceWorker: production ? `/${version}/service-worker.js` : '/service-worker.js',
       serviceWorker: '/service-worker.js',
     }),
-    new SWPrecacheWebpackPlugin({
-      minify: true,
-      cacheId: 'antd-mobile-roadhog',
-      filename: 'service-worker.js',
-      filepath: 'dist/service-worker.js',
-      stripPrefix: 'dist/',
-      replacePrefix: '/',
-      navigateFallback: 'index.html',
-      staticFileGlobs: [
-        'dist/index.html',
-        'dist/css/**.css',
-        'dist/js/**.js',
-        'dist/images/**.{jpg,png,gif}',
-        `dist/${version}/static/**/**.{jpg,png,gif}`,
-        `dist/${version}/**.js`,
-        `dist/${version}/**.css`,
-      ],
-    }),
   ])
+
+  if (production) {
+    webpackConfig.plugins = webpackConfig.plugins.concat([
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false,
+      }),
+      new SWPrecacheWebpackPlugin({
+        minify: true,
+        cacheId: 'antd-mobile-roadhog',
+        filename: 'service-worker.js',
+        filepath: 'dist/service-worker.js',
+        stripPrefix: 'dist/',
+        replacePrefix: '/',
+        navigateFallback: 'index.html',
+        staticFileGlobs: [
+          'dist/index.html',
+          'dist/css/**.css',
+          'dist/js/**.js',
+          'dist/images/**.{jpg,png,gif}',
+          `dist/${version}/static/**/**.{jpg,png,gif}`,
+          `dist/${version}/**.css`,
+          `dist/${version}/**.js`,
+        ],
+      }),
+    ])
+  }
 
   return webpackConfig
 }
