@@ -43,6 +43,9 @@ class TaskStats extends Component {
           <dt style={{ marginTop: 20 }}><i style={{ color: 'red' }}>*</i> double click the task item to edit the task</dt>
           <dd />
         </dl>
+        <img style={{ width: '100%' }} src={require('./images/test-02.png')} alt="" />
+        <img style={{ width: '100%' }} src={require('./test-01.gif')} alt="" />
+        <img style={{ width: '100%' }} src="./images/test-03.gif" alt="" />
       </div>
     )
   }

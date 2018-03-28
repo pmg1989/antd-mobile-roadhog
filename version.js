@@ -38,6 +38,9 @@ const removeFolder = (folderPath) => {
 }
 
 const start = async () => {
+  if (!fs.existsSync(dist)) {
+    fs.mkdirSync(dist)
+  }
   const files = fs.readdirSync(dist)
   const promises = files.map(file => new Promise((resolve, reject) => {
     fs.stat(`${dist}/${file}`, (err, stats) => {

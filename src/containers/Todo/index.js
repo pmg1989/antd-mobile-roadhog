@@ -61,8 +61,6 @@ class Todo extends Component {
           <TaskForm onSave={onTaskAdd} />
           <TaskList {...taskListProps} />
           <TaskStats {...taskStatsProps} />
-          <img src={require('./images/test-01.gif')} alt="" />
-          <img src="./images/test-01.gif" alt="" />
         </div>
       </div>
     )
