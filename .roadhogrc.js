@@ -14,8 +14,7 @@ export default {
   theme: "./theme.config.js",
   hash: true,
   publicPath: `/${version}/`,
-  outputPath : `./dist/${version}/`,
-  // outputPath: `./dist/deploy/`,
+  outputPath: `./dist/${version}/`,
   proxy: {
     "/api": {
       "target": PROXY_HOST,
