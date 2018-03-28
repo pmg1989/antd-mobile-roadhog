@@ -23,7 +23,6 @@ module.exports = (webpackConfig, env) => {
       } : null,
       // hash: true,
       zhugeAppKey,
-      // serviceWorker: production ? `/${version}/service-worker.js` : '/service-worker.js',
       serviceWorker: '/service-worker.js',
     }),
   ])
