@@ -47,6 +47,8 @@ module.exports = (webpackConfig, env) => {
         'dist/index.html',
         'dist/css/**.css',
         'dist/js/**.js',
+        'dist/images/**.{jpg,png,gif}',
+        `dist/${version}/static/**.{jpg,png,gif}`,
         `dist/${version}/**.js`,
         `dist/${version}/**.css`,
       ],
