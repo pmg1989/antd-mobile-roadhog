@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "antd-mobile-roadhog",
-  "version": "1.0.3",
+  "version": "1.0.1",
   "theme": "./theme.config.js",
   "scripts": {
     "dev": "cross-env API_ENV=development BROWSER=none PORT=8017 roadhog server",
