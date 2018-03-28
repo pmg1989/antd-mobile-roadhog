@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const copydir = require('copy-dir')
 const { version } = require('./package.json')
 
 const removeFolder = (folderPath, removeDirectory = true) => {
@@ -20,18 +19,17 @@ const removeFolder = (folderPath, removeDirectory = true) => {
 }
 
 const start = () => {
-  const from = path.join(`${__dirname}/dist/deploy`)
-
-  const dist = path.join(`${__dirname}/dist/${version}`)
-  if (!fs.existsSync(dist)) {
-    fs.mkdirSync(dist)
-  } else {
-    removeFolder(dist, false)
-  }
-
-  copydir.sync(from, dist)
-
-  removeFolder(from)
+  const dirList = [version, 'js', 'css', 'images', 'index.html', 'service-worker.js']
+  dirList.forEach((dir) => {
+    const curPath = path.join(`${__dirname}/dist/${dir}`)
+    if (fs.existsSync(curPath)) {
+      if (fs.statSync(curPath).isDirectory()) {
+        removeFolder(curPath)
+      } else {
+        fs.unlinkSync(curPath)
+      }
+    }
+  })
 }
 
 start()
