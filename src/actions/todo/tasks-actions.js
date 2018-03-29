@@ -10,7 +10,6 @@ export const {
   taskRemove,
   taskEdit,
   taskFilter,
-  receiveTaskList,
 } = createActions({
   [todoConstants.TASK_ADD]: name => ({ name }),
   [todoConstants.TASK_DONE]: id => ({ id }),
@@ -18,7 +17,11 @@ export const {
   [todoConstants.TASK_REMOVE]: id => ({ id }),
   [todoConstants.TASK_EDIT]: ({ id, name }) => ({ id, name }),
   [todoConstants.TASK_FILTER]: filter => ({ filter }),
-  [todoConstants.FETCH_TASK_LIST]: list => ({ list: Immutable.fromJS(list) }),
+})
+
+const receiveTaskList = list => ({
+  list: Immutable.fromJS(list),
+  type: todoConstants.FETCH_TASK_LIST,
 })
 
 export const fetchTaskList = () => (
