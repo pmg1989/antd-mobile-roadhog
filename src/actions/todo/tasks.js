@@ -19,10 +19,17 @@ const receiveTaskList = list => ({
   type: todoConstants.FETCH_TASK_LIST,
 })
 
+// export const fetchTaskList = () => (
+//     dispatch => (
+//       fetch('https://api.myjson.com/bins/aapid')
+//       .then(res => res.json())
+//       .then(list => dispatch(receiveTaskList(list)))
+//     )
+// )
+
 export const fetchTaskList = () => (
-    dispatch => (
-      fetch('https://api.myjson.com/bins/aapid')
-      .then(res => res.json())
-      .then(list => dispatch(receiveTaskList(list)))
-    )
+  async (dispatch) => {
+    const list = await fetch('https://api.myjson.com/bins/aapid').then(res => res.json())
+    dispatch(receiveTaskList(list))
+  }
 )
