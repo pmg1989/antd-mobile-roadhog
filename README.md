@@ -9,9 +9,9 @@ Include below common usage:
 ### dev
 
 ```
-npm install
-npm start
+yarn install
+yarn run dev
 ```
 
-http://localhost:8002/
+http://localhost:8001/
 
